@@ -3,6 +3,13 @@ $(function ($) {
 
   jQuery(document).ready(function () {
 
+    $("[data-src]").each(function () {
+      $(this).removeAttr("src");
+      var source = $(this).data('src');
+      $(this).attr('src', source);
+      $(this).removeAttr('data-src');
+    });
+
     $(".toggle-icon").on("click", function () {
       $(".my-navbar").toggleClass("show");
       $(".mainmenu-area").toggleClass("show");
@@ -36,10 +43,10 @@ $(function ($) {
 
     $("#home .pageresume").on("click", function (e) {
       e.preventDefault();
-        $(".my-navbar .mynav-item").removeClass("active");
-        $(".my-navbar .mynav-item.resume").addClass("active");
-        $(".my-navbar .mynav-item .resume").addClass("active");
-        $(".about-area").addClass("active");
+      $(".my-navbar .mynav-item").removeClass("active");
+      $(".my-navbar .mynav-item.resume").addClass("active");
+      $(".my-navbar .mynav-item .resume").addClass("active");
+      $(".about-area").addClass("active");
     });
 
     //Mixitup js
@@ -96,54 +103,54 @@ $(function ($) {
         },
       });
     });
-    $('.project-gallery-item').each(function() {
+    $('.project-gallery-item').each(function () {
       $(this).magnificPopup({
         delegate: '.pp:visible',
-          type: "ajax",
+        type: "ajax",
         tLoading: '<div class="preloader"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>',
         mainClass: "mfp-fade",
         closeBtnInside: true,
         midClick: true,
         gallery: {
-            enabled: true,
-          },
+          enabled: true,
+        },
         callbacks: {
-          ajaxContentAdded: function() {
+          ajaxContentAdded: function () {
             $(".owl-carousel").each(function (index) {
               var a = $(this);
               $(this).owlCarousel({
-              autoplay: a.data('autoplay'),
-              center: a.data('center'),
-              autoplayTimeout: a.data('autoplaytimeout'),
-              autoplayHoverPause: a.data('autoplayhoverpause'),
-              loop: a.data('loop'),
-              speed: a.data('speed'),
-              nav: a.data('nav'),
-              dots: a.data('dots'),
-              autoHeight: a.data('autoheight'),
-              autoWidth: a.data('autowidth'),
-              margin: a.data('margin'),
-              stagePadding: a.data('stagepadding'),
-              slideBy: a.data('slideby'),
-              lazyLoad: a.data('lazyload'),
-              navText:['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-              animateOut: a.data('animateOut'),
-              animateIn: a.data('animateIn'),
-              video: a.data('video'),
-              items: a.data('items'),
-              responsive:{
-                0:{items: a.data('items-xs'),},
-                576:{items: a.data('items-sm'),},
-                768:{items: a.data('items-md'),},
-                992:{items: a.data('items-lg'),}
-              }	
-                      });
-                  });
-              }
+                autoplay: a.data('autoplay'),
+                center: a.data('center'),
+                autoplayTimeout: a.data('autoplaytimeout'),
+                autoplayHoverPause: a.data('autoplayhoverpause'),
+                loop: a.data('loop'),
+                speed: a.data('speed'),
+                nav: a.data('nav'),
+                dots: a.data('dots'),
+                autoHeight: a.data('autoheight'),
+                autoWidth: a.data('autowidth'),
+                margin: a.data('margin'),
+                stagePadding: a.data('stagepadding'),
+                slideBy: a.data('slideby'),
+                lazyLoad: a.data('lazyload'),
+                navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                animateOut: a.data('animateOut'),
+                animateIn: a.data('animateIn'),
+                video: a.data('video'),
+                items: a.data('items'),
+                responsive: {
+                  0: { items: a.data('items-xs'), },
+                  576: { items: a.data('items-sm'), },
+                  768: { items: a.data('items-md'), },
+                  992: { items: a.data('items-lg'), }
+                }
+              });
+            });
           }
+        }
       });
-      });
-});
+    });
+  });
 
   $(window).on('load', function () {
     /*Preloader*/

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "jangan lupa cek koneksi"
+echo "mulai upload"
 
 git pull origin master
 
